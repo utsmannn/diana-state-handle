@@ -5,7 +5,7 @@ plugins {
 }
 
 ext {
-    artifactName = "diana-adapter"
+    artifactName = "adapter"
 }
 
 apply from: "$rootDir/gradle/scripts/common-lib-config.gradle"

@@ -5,7 +5,7 @@ plugins {
 }
 
 ext {
-    artifactName = "diana-subscriber"
+    artifactName = "subscriber"
 }
 
 apply from: "$rootDir/gradle/scripts/common-lib-config.gradle"

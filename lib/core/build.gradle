@@ -5,7 +5,7 @@ plugins {
 }
 
 ext {
-    artifactName = "diana-core"
+    artifactName = "core"
 }
 
 apply from: "$rootDir/gradle/scripts/common-lib-config.gradle"
