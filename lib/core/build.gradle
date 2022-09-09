@@ -1,0 +1,11 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "$rootDir/gradle/scripts/common-lib-config.gradle"
+apply from: "$rootDir/gradle/scripts/coroutine.gradle"
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.9.0'
+}
