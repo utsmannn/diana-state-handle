@@ -1,4 +1,4 @@
-package com.diana.sample
+package com.diana.samplecompose
 
 import android.app.Application
 import com.diana.appcore.repository.UserRepository

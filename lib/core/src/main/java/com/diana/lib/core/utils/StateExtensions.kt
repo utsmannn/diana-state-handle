@@ -5,7 +5,7 @@ import com.diana.lib.core.event.StateEvent
 import com.diana.lib.core.event.StateEventFlow
 import kotlinx.coroutines.flow.map
 
-fun <T> default() = MutableStateEventManager<T>()
+fun <T> defaultManager() = MutableStateEventManager<T>()
 
 fun <T, U>StateEvent<T>.mapState(mapper: (T) -> U): StateEvent<U> {
     return when (this) {

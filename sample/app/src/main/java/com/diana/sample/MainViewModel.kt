@@ -1,4 +1,4 @@
-package com.diana.sample.ui
+package com.diana.sample
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,15 +15,20 @@ class MainViewModel(
 ) : ViewModel() {
 
     private val userManager = userRepository.userStateEventManager
-
     private val userScope = userManager.createScope(viewModelScope)
 
-    fun subscribeUser(subscriber: StateEventSubscriber<List<User>>) {
+    fun subscribeUserManager(subscriber: StateEventSubscriber<List<User>>) {
         createEventToSubscriber(userManager, subscriber)
     }
 
-    fun getUsers(page: Int) = userScope.launch {
-        userRepository.getUsers(page)
+    val usersLiveData get() = userRepository.userStateEventLiveData
+
+    fun getUsersWithManager(page: Int) = userScope.launch {
+        userRepository.getUsersUseManager(page)
+    }
+
+    fun getUsersWithLiveData(page: Int) = viewModelScope.launch {
+        userRepository.getUserUseLiveData(page)
     }
 
     companion object {

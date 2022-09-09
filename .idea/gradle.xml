@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/lib/subscriber" />
             <option value="$PROJECT_DIR$/sample" />
             <option value="$PROJECT_DIR$/sample/app" />
+            <option value="$PROJECT_DIR$/sample/app-compose" />
             <option value="$PROJECT_DIR$/sample/app-core" />
           </set>
         </option>

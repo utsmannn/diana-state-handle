@@ -1,9 +1,10 @@
-package com.diana.sample.ui
+package com.diana.sample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.diana.lib.subscriber.StateEventSubscriber
 import com.diana.appcore.data.entity.User
+import com.diana.lib.subscriber.createStateEventListener
 import com.diana.sample.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -18,11 +19,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        viewModel.subscribeUser(subscriber())
+        /*viewModel.subscribeUserManager(subscriber())
         binding.mainText.setOnClickListener {
-            viewModel.getUsers(1)
-        }
+            viewModel.getUsersWithManager(1)
+        }*/
 
+        viewModel.usersLiveData.observe(this) {
+            createStateEventListener(it, subscriber())
+        }
+        binding.mainText.setOnClickListener {
+            viewModel.getUsersWithLiveData(1)
+        }
     }
 
     private fun subscriber() = object : StateEventSubscriber<List<User>> {
