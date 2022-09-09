@@ -5,27 +5,15 @@ plugins {
 }
 
 ext {
-    artifactName = "adapter"
+    artifactName = "diana-adapter"
 }
 
 apply from: "$rootDir/gradle/scripts/common-lib-config.gradle"
+apply from: "$rootDir/gradle/scripts/common-lib-publish.gradle"
 apply from: "$rootDir/gradle/scripts/coroutine.gradle"
 apply from: "$rootDir/gradle/scripts/retrofit.gradle"
 
 dependencies {
     implementation project(":lib:core")
     implementation 'androidx.core:core-ktx:1.9.0'
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = group
-                artifactId = artifactName
-                version = version
-            }
-        }
-    }
 }

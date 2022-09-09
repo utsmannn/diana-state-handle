@@ -5,27 +5,15 @@ plugins {
 }
 
 ext {
-    artifactName = "subscriber"
+    artifactName = "diana-subscriber"
 }
 
 apply from: "$rootDir/gradle/scripts/common-lib-config.gradle"
+apply from: "$rootDir/gradle/scripts/common-lib-publish.gradle"
 apply from: "$rootDir/gradle/scripts/coroutine.gradle"
 
 dependencies {
     implementation project(":lib:core")
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = group
-                artifactId = artifactName
-                version = version
-            }
-        }
-    }
 }

@@ -55,11 +55,8 @@ dependencies {
     implementation 'io.insert-koin:koin-android:3.2.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
-    implementation 'com.github.utsmannn:diana-state-handle:core:1.0.0'
-    implementation 'com.github.utsmannn:diana-state-handle:adapter:1.0.0'
-    implementation 'com.github.utsmannn:diana-state-handle:subscriber:1.0.0'
-
     implementation project(":sample:app-core")
 }
 
 apply from: "$rootDir/gradle/scripts/retrofit.gradle"
+apply from: "$rootDir/gradle/scripts/sample-local-deps.gradle"
