@@ -47,15 +47,14 @@ fun Main(viewModel: MainViewModel) {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                when (userState) {
+                when (val data = userState) {
                     is StateEvent.Loading -> RenderText(text = "loading...")
                     is StateEvent.Failure -> {
-                        val throwable = (userState as StateEvent.Failure).exception
+                        val throwable = data.exception
                         RenderError(throwable = throwable)
                     }
                     is StateEvent.Success -> {
-                        val data = (userState as StateEvent.Success).data
-                        RenderUserList(userList = data)
+                        RenderUserList(userList = data.data)
                     }
                     else -> RenderText(text = "idle") {
                         viewModel.getUsersWithLiveData(1)
